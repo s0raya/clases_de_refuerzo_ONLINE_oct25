@@ -1,0 +1,171 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/********************************************/
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 60px;
+    gap: 15px;
+    padding: 10px 30px;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+}
+
+.navbar {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: black;
+}
+
+.navbar a::after {
+    content: "";
+    display: inline-block;
+    height: 14px;
+    width: 14px;
+    background-image: url('img/flecha-hacia-abajo.png');
+    background-size: contain;
+}
+
+.btn-campus {
+    background-color: transparent;
+    color: red;
+    border: 1px solid red;
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 10px;
+    width: 150px;
+}
+
+.btn-info {
+    background-color: red;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.btn-info:hover, .btn-campus:hover {
+    cursor: pointer;
+}
+
+.img-main {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    width: 30px;
+    height: 30px;
+}
+
+.nav-hamburger{
+    display: none;
+    position: absolute;
+    top: 70px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    line-height: 25px;
+}
+
+
+.nav-hamburger a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    gap: 10px;
+}
+
+.nav-hamburger a::after {
+    content: "";
+    display: inline-block;
+    height: 14px;
+    width: 14px;
+    background-image: url('img/flecha-hacia-abajo.png');
+    background-size: contain;
+}
+
+.nav-hamburger.active {
+    display: flex;
+    flex-direction: column;
+}
+
+
+@media (width < 1200px) {
+    .hamburger {
+        display: block;
+    }
+    .navbar, .desktop-buttons {
+        display: none;
+    }
+    .header {
+        justify-content: space-between;
+    }
+}
