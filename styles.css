@@ -123,49 +123,27 @@ body {
     height: 30px;
 }
 
-.nav-hamburger{
-    display: none;
-    position: absolute;
-    top: 70px;
-    background-color: white;
-    padding: 10px;
-    border-radius: 8px;
-    line-height: 25px;
-}
-
-
-.nav-hamburger a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: black;
-    gap: 10px;
-}
-
-.nav-hamburger a::after {
-    content: "";
-    display: inline-block;
-    height: 14px;
-    width: 14px;
-    background-image: url('img/flecha-hacia-abajo.png');
-    background-size: contain;
-}
-
-.nav-hamburger.active {
-    display: flex;
-    flex-direction: column;
-}
-
 
 @media (width < 1200px) {
     .hamburger {
         display: block;
     }
-    .navbar, .desktop-buttons {
+    .navbar {
         display: none;
+        position: absolute;
+        top: 70px;
+        width: 100%;
+        background-color: white;
+        padding: 10px;
+        border-radius: 8px;
+        line-height: 25px;
     }
     .header {
         justify-content: space-between;
     }
+    .navbar.active {
+        display: flex;
+        flex-direction: column;
+    }
+    
 }

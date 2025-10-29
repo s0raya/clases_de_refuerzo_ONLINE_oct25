@@ -1,6 +1,6 @@
 const hamburgerIcon = document.getElementById("hamburger-icon");
-const hamburgerMenu = document.getElementById("hamburger-menu");
+const navbar = document.getElementById("navbar");
 
 hamburgerIcon.addEventListener('click', () => {
-    hamburgerMenu.classList.toggle("active");
+    navbar.classList.toggle("active");
 })
