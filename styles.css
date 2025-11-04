@@ -54,6 +54,7 @@ body {
 }
 
 .header {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,21 +74,21 @@ body {
     gap: 20px;
 }
 
-.navbar a {
+.ul-navbar {
     display: flex;
     align-items: center;
+    gap: 15px;
+}
+
+.ul-navbar:hover {
+    cursor: pointer;
+}
+
+.navbar a {
+    display: flex;
     gap: 6px;
     text-decoration: none;
     color: black;
-}
-
-.navbar a::after {
-    content: "";
-    display: inline-block;
-    height: 14px;
-    width: 14px;
-    background-image: url('img/flecha-hacia-abajo.png');
-    background-size: contain;
 }
 
 .btn-campus {
@@ -117,10 +118,47 @@ body {
     width: 100%;
 }
 
+.arrow::after {
+    content: "";
+    display: inline-block;
+    background-image: url('img/flecha-hacia-abajo.png');
+    background-size: contain;
+    height: 14px;
+    width: 14px;
+    transition: transform 0.3s ease;
+}
+
+.has-submenu.active .arrow::after {
+    transform: rotate(180deg);
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.has-submenu.active .submenu {
+    opacity: 1;
+}
+
+.submenu li a {
+    display: block;
+    padding: 8px 15px;
+    background-color: #f08f8f;
+}
+
 .hamburger {
     display: none;
     width: 30px;
     height: 30px;
+    background-color: transparent;
+    border: none;
+}
+
+.img-hamburger {
+    height: 100%;
 }
 
 
@@ -132,7 +170,6 @@ body {
         display: none;
         position: absolute;
         top: 70px;
-        width: 100%;
         background-color: white;
         padding: 10px;
         border-radius: 8px;
@@ -144,6 +181,10 @@ body {
     .navbar.active {
         display: flex;
         flex-direction: column;
+
     }
-    
+    .ul-navbar {
+        display: flex;
+        flex-direction: column;
+    }
 }
