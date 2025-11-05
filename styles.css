@@ -167,21 +167,25 @@ body {
         display: block;
     }
     .navbar {
-        display: none;
+        display: flex;
+        flex-direction: column;
         position: absolute;
         top: 70px;
+        right: 0;
         background-color: white;
         padding: 10px;
         border-radius: 8px;
         line-height: 25px;
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.4s ease, opacity 0.4s ease;
     }
     .header {
         justify-content: space-between;
     }
     .navbar.active {
-        display: flex;
-        flex-direction: column;
-
+        max-height: 500px;
+        opacity: 1;
     }
     .ul-navbar {
         display: flex;
