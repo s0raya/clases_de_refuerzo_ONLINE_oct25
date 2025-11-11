@@ -13,6 +13,7 @@ submenuLinks.forEach(link => {
     })
 })
 
+
 /*********** Para cerrar otros submenús al abrir uno *******/
 
 /*submenuLinks.forEach(link => {
