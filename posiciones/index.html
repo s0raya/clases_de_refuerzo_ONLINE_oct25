@@ -3,22 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Relative vs Absolute</title>
+  <title>Ejemplo de posiciones CSS</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Relación entre <code>position: relative</code> y <code>position: absolute</code></h1>
+  <h1>Demostración de <code>position</code> en CSS</h1>
 
   <section>
-    <p>En este ejemplo, la caja azul tiene <b>position: relative</b> y la caja naranja dentro de ella tiene <b>position: absolute</b>.</p>
+    <h2>1️⃣ position: relative y absolute</h2>
+    <p>La caja azul tiene <b>position: relative</b> y dentro hay una caja naranja con <b>position: absolute</b>.</p>
 
     <div class="caja relative">
       relative
       <div class="caja absolute">absolute</div>
     </div>
 
-    <p>🔹 <b>relative</b> se mueve respecto a su posición original, pero conserva su hueco en el flujo.<br>
-       🔹 <b>absolute</b> se posiciona con respecto a su padre más cercano que tenga <code>position</code> distinto de <code>static</code> (en este caso, la azul).</p>
+    <p>🔹 La caja <b>relative</b> se mueve respecto a su posición original pero mantiene su hueco.<br>
+       🔹 La caja <b>absolute</b> se posiciona respecto al padre posicionado (en este caso, la azul).</p>
   </section>
+
+  <section>
+    <h2>2️⃣ position: sticky</h2>
+    <p>La caja roja tiene <b>position: sticky</b> y <code>top: 0</code>.  
+    Al hacer scroll, se comporta como <b>relative</b> hasta llegar al borde superior, donde se “pega”.</p>
+
+    <div class="caja sticky">sticky</div>
+
+    <div class="espaciador"></div>
+  </section>
+
+  <section>
+    <h2>3️⃣ position: fixed</h2>
+    <p>La caja verde tiene <b>position: fixed</b> y permanece siempre visible en la esquina inferior derecha,  
+    sin importar el scroll ni el contenedor.</p>
+  </section>
+
+  <div class="caja fixed">fixed</div>
+
+  <p class="scroll-info">Haz scroll hacia abajo para ver cómo se comportan <b>sticky</b> y <b>fixed</b>.</p>
 </body>
 </html>

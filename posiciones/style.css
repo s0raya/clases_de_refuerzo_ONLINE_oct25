@@ -1,8 +1,10 @@
+/* --- CONFIGURACIÓN GENERAL --- */
 body {
   font-family: "Poppins", sans-serif;
   background-color: #f7f7f7;
   padding: 40px;
   line-height: 1.6;
+  height: 1800px; /* altura extra para poder hacer scroll */
 }
 
 h1 {
@@ -11,9 +13,14 @@ h1 {
   color: #333;
 }
 
+h2 {
+  color: #444;
+  margin-top: 50px;
+}
+
 section {
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 700px;
+  margin: 0 auto 80px;
   background: #fff;
   padding: 30px;
   border-radius: 10px;
@@ -21,10 +28,10 @@ section {
 }
 
 p {
-  margin: 20px 0;
+  margin: 15px 0 25px;
 }
 
-/* Cajas */
+/* --- CAJAS BASE --- */
 .caja {
   width: 200px;
   height: 200px;
@@ -34,27 +41,73 @@ p {
   justify-content: center;
   font-weight: bold;
   border-radius: 10px;
-  position: relative;
+  text-transform: lowercase;
 }
 
-/* Relative */
+/* --- 1️⃣ RELATIVE Y ABSOLUTE --- */
+
+/* Caja azul: padre posicionado */
 .relative {
   background-color: #3c8dbc;
-  position: relative;
-  top: 30px;
+  position: relative; /* se convierte en referencia para los hijos absolute */
+  top: 30px;  /* se mueve un poco desde su posición original */
   left: 40px;
   margin: 40px auto;
 }
 
-/* Absolute dentro de la relative */
+/* Caja naranja: posicionada dentro del padre relative */
 .absolute {
   background-color: #f39c12;
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  position: absolute; /* se posiciona dentro del relative */
+  top: 10px;   /* coordenadas relativas al padre */
+  right: 10px;
   width: 100px;
   height: 100px;
   font-size: 14px;
   border: 3px solid #fff;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* --- 2️⃣ STICKY --- */
+.sticky {
+  background-color: #dd4b39;
+  position: sticky; /* actúa como relative hasta que llega al top indicado */
+  top: 0;           /* se “pega” al llegar a 0px del borde superior */
+  width: 100%;
+  max-width: 700px;
+  height: 80px;
+  font-size: 20px;
+  border-radius: 8px;
+  text-align: center;
+  margin: 20px auto;
+  z-index: 5; /* asegura que quede encima del contenido */
+}
+
+/* Espaciador para hacer scroll y ver sticky en acción */
+.espaciador {
+  height: 800px;
+  background: linear-gradient(to bottom, #fff, #f7f7f7);
+  border-radius: 10px;
+}
+
+/* --- 3️⃣ FIXED --- */
+.fixed {
+  background-color: #00a65a;
+  position: fixed; /* siempre visible, sin importar el scroll */
+  bottom: 20px;    /* pegado al borde inferior */
+  right: 20px;     /* pegado al borde derecho */
+  width: 120px;
+  height: 120px;
+  font-size: 18px;
+  border-radius: 12px;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Texto informativo al final */
+.scroll-info {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  margin-top: 100px;
 }
