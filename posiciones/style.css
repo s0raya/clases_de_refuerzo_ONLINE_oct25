@@ -1,0 +1,60 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f7f7f7;
+  padding: 40px;
+  line-height: 1.6;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+section {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+p {
+  margin: 20px 0;
+}
+
+/* Cajas */
+.caja {
+  width: 200px;
+  height: 200px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 10px;
+  position: relative;
+}
+
+/* Relative */
+.relative {
+  background-color: #3c8dbc;
+  position: relative;
+  top: 30px;
+  left: 40px;
+  margin: 40px auto;
+}
+
+/* Absolute dentro de la relative */
+.absolute {
+  background-color: #f39c12;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 100px;
+  height: 100px;
+  font-size: 14px;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}

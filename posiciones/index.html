@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relative vs Absolute</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Relación entre <code>position: relative</code> y <code>position: absolute</code></h1>
+
+  <section>
+    <p>En este ejemplo, la caja azul tiene <b>position: relative</b> y la caja naranja dentro de ella tiene <b>position: absolute</b>.</p>
+
+    <div class="caja relative">
+      relative
+      <div class="caja absolute">absolute</div>
+    </div>
+
+    <p>🔹 <b>relative</b> se mueve respecto a su posición original, pero conserva su hueco en el flujo.<br>
+       🔹 <b>absolute</b> se posiciona con respecto a su padre más cercano que tenga <code>position</code> distinto de <code>static</code> (en este caso, la azul).</p>
+  </section>
+</body>
+</html>
