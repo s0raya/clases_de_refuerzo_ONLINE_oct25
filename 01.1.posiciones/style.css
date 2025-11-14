@@ -50,8 +50,7 @@ p {
 .relative {
   background-color: #3c8dbc;
   position: relative; /* se convierte en referencia para los hijos absolute */
-  top: 30px;  /* se mueve un poco desde su posición original */
-  left: 40px;
+
   margin: 40px auto;
 }
 
@@ -59,8 +58,8 @@ p {
 .absolute {
   background-color: #f39c12;
   position: absolute; /* se posiciona dentro del relative */
-  top: 10px;   /* coordenadas relativas al padre */
-  right: 10px;
+  top: 0px;   /* coordenadas relativas al padre */
+  left: 0px;
   width: 100px;
   height: 100px;
   font-size: 14px;

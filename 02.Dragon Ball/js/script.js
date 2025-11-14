@@ -2,14 +2,17 @@ const charactersContainer = document.getElementById("characters");
 const favoritesContainer = document.getElementById("favorites");
 const loadBtn = document.getElementById("loadBtn");
 const searchInput = document.getElementById("searchInput");
+const btn_prev = document.getElementById("btn_prev");
+const btn_next = document.getElementById("btn_next");
 
 const url = "https://dragonball-api.com/api/characters";
 
 let characters = [];
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+let page = 1;
 
-loadBtn.addEventListener('click', () => {
-    fetch(`${url}/?page=5&limit=10`)
+const loadCharacters = (page) => {
+    fetch(`${url}/?page=${page}&limit=8`)
     .then(response => {
         if(!response.ok) {
             throw new Error('La consulta no se ha podido realizar')
@@ -22,7 +25,9 @@ loadBtn.addEventListener('click', () => {
         renderCharacters(characters)
     }) 
     .catch (err => console.log("Error al cargar: ", err))
-})
+}
+
+loadCharacters(page);
 
 const renderCharacters = (characters) => {
     charactersContainer.innerHTML = '';
@@ -97,3 +102,18 @@ searchInput.addEventListener("input", (e) => {
     const filtered = characters.filter(c => c.name.toLowerCase().includes(term));
     renderCharacters(filtered);
 })
+
+btn_next.addEventListener('click', () => {
+    if(page <= 7) {
+        page++;
+        loadCharacters(page);
+    }
+})
+
+btn_prev.addEventListener('click', () => {
+    if(page > 1) {
+        page--;
+        loadCharacters(page);
+    }
+})
+

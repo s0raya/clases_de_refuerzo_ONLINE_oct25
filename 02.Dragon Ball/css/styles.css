@@ -51,13 +51,16 @@ table {
 /******** nuestras css *******/
 
 :root {
-    --orange: rgb(251, 192, 45)
+    --orange: #E76A24;
+    --yellow: #fbbc42;
+    --blue: #1c4595;
+    --white: #e7e5e8;
 }
 
 
 body {
     background: rgb(39, 43, 51);
-    color: white;
+    color: var(--white);
     padding: 20px;
     font-family: 'Roboto';
 }
@@ -69,7 +72,8 @@ h1 {
 
 h2 {
     font-size: 35px;
-    font-weight: 600px;
+    font-weight: 600;
+    text-align: center;
     margin-top: 50px;
 }
 
@@ -80,7 +84,7 @@ h3 {
 
 .header {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     gap: 20px;
     height: 150px;
@@ -106,19 +110,6 @@ h3 {
     gap: 10px;
 }
 
-.loadBtn {
-    background-color: #e76a24;
-    color: #01080a;
-    font-size: 20px;
-    font-weight: 700;
-    width: 200px;
-    border-radius: 50px;
-}
-
-.loadBtn:hover {
-    cursor: pointer;
-}
-
 .searchInput {
     border-radius: 5px;
     height: 25px;
@@ -129,6 +120,7 @@ h3 {
     flex-wrap: wrap;
     justify-content: center;
     gap: 100px;
+    margin: 40px;
 }
 
 .card {
@@ -181,5 +173,18 @@ h3 {
     color: var(--orange);
     font-size: 20px;
     font-weight: 900;
+}
+
+.btn_prev, .btn_next {
+    background-color: var(--yellow);
+    color: var(--blue);
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 50px;
+    width: 150px;
+}
+
+.btn_prev:hover, .btn_next:hover {
+    cursor: pointer;
 }
 
