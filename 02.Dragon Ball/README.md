@@ -39,8 +39,8 @@ La función renderCharFavs() se utiliza para:
 ## 🛠️ Tecnologías Utilizadas
 
 - **HTML5**
--- **CSS3**
--- **JavaScript**
--- **Fetch API**
--- **LocalStorage**
--- **DragonBall API**
+- **CSS3**
+- **JavaScript**
+- **Fetch API**
+- **LocalStorage**
+- **DragonBall API**
