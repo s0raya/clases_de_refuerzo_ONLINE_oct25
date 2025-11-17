@@ -1,7 +1,5 @@
 # 🐉 Dragon Ball Characters App
 
----
-
 ## 🚀 Descripción del Proyecto
 
 Esta aplicación permite visualizar personajes de Dragon Ball obtenidos desde la DragonBall API, además de buscar, paginar y guardar personajes en una lista de favoritos.
