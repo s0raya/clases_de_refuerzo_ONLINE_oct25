@@ -126,7 +126,7 @@ h3 {
 .card {
     display: flex;
     flex-direction: column;
-    width: 280px;
+    width: 320px;
     background: rgb(60, 62, 68);
     border: 1px solid black;
     border-radius: 10px;
@@ -134,6 +134,10 @@ h3 {
 
 .card:hover {
     cursor: pointer;
+}
+
+.card_favorite {
+    background-color: #1c4595;
 }
 
 .container_img {
@@ -186,5 +190,33 @@ h3 {
 
 .btn_prev:hover, .btn_next:hover {
     cursor: pointer;
+}
+
+.btn_favorites {
+    position: fixed;
+    right: 20px;
+    bottom: 40px;
+    background: transparent;
+    border: none;
+    width: 150px;
+}
+
+.btn_favorites:hover {
+    cursor: pointer;
+}
+
+.img_favorites {
+    width: 100%;
+}
+
+.btn_home {
+    position: fixed;
+    left: 20px;
+    bottom: 40px;
+    width: 150px;
+}
+
+.img_home {
+    width: 100%;
 }
 
