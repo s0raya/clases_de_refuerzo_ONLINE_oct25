@@ -10,7 +10,6 @@ let characters = [];
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
 const loadCharacters = (url) => {
-    console.log(url)
     fetch(`${url}`)
     .then(response => {
         if(!response.ok) {
