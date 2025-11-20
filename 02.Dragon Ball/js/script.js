@@ -13,15 +13,16 @@ const loadCharacters = (url) => {
     fetch(`${url}`)
     .then(response => {
         if(!response.ok) {
-            throw new Error('La consulta no se ha podido realizar')
+            throw new Error('Error al obtener datos de la API')
         }
         return response.json();
     })
     .then(data => {
-        characters = data.items || data;
+        characters = data.items || data; // hay que poner || data para que funcione el buscador.
 
-        /* si no pongo esto, al buscar un personaje links no existe y da error) */
-        if(data.items && data.links) {
+        /* si no pongo esto, al buscar un personaje links no existe y da error, 
+        añado charactersContainer para que la paginación solo esté en la home y no en favoritos */
+        if(data.items && data.links && charactersContainer) {
             updatePagination(data.links.next, data.links.previous)
         }
         if(charactersContainer) renderCharFavs(characters, charactersContainer)
@@ -41,6 +42,8 @@ const renderCharFavs = (charactersList, container) => {
         const { id, name, ki, maxKi, race, gender, affiliation, image } = character;
         const card = document.createElement("div");
         card.className = "card";
+
+        // Añadirle la clase card_favorite si ya está marcado como favorito.
         if(favorites.some(fav => fav.id === character.id)) {
             card.classList.add('card_favorite');
         }
@@ -88,38 +91,44 @@ const toggleFavorite = (id) => {
     }
 }
 
-// Buscador en Home
-if(searchInput && charactersContainer) {
+//Buscador, tanto en la home como en favoritos.
+if(searchInput) {
     searchInput.addEventListener('input', (e) => {
         const term = e.target.value.trim().toLowerCase();
-        if(term === "") {
-            loadCharacters(currentUrl);
-        } else {
-            loadCharacters(`https://dragonball-api.com/api/characters?name=${term}`)
+
+        if(charactersContainer) {
+            if(term === "") {
+                loadCharacters(currentUrl);
+            } else {
+                loadCharacters(`https://dragonball-api.com/api/characters?name=${term}`)
+            }
         }
+
+        if(favoritesContainer) {
+            const filtered = favorites.filter(f => f.name.toLowerCase().includes(term));
+            renderCharFavs(filtered, favoritesContainer)
+        }
+
     })
 }
 
-// Buscador en favoritos
-if(searchInput && favoritesContainer) {
-    searchInput.addEventListener('input', (e) => {
-        const term = e.target.value.trim().toLowerCase();
-        const filtered = favorites.filter(f => f.name.toLowerCase().includes(term));
-        renderCharFavs(filtered, favoritesContainer)
-    });
-}
-
 const updatePagination = (next, prev) => {
-    btn_next.dataset.url = next
-    btn_prev.dataset.url = prev
+    btn_next.dataset.url = next;
+    btn_prev.dataset.url = prev;
 }
 
-btn_next.addEventListener('click', () => {
-    const nextUrl = btn_next.dataset.url;
-    if(nextUrl) loadCharacters(nextUrl)
-})
+if(charactersContainer) {
+    btn_next.addEventListener('click', () => {
+        const nextUrl = btn_next.dataset.url;
+        if(nextUrl) loadCharacters(nextUrl)
+    })
 
-btn_prev.addEventListener('click', () => {
-    const prevUrl = btn_prev.dataset.url;
-    if(prevUrl) loadCharacters(prevUrl)
-})
+    btn_prev.addEventListener('click', () => {
+        const prevUrl = btn_prev.dataset.url;
+        if(prevUrl) loadCharacters(prevUrl)
+    })
+}
+
+
+
+
