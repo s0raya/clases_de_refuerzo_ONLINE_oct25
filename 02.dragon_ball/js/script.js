@@ -25,6 +25,8 @@ const loadCharacters = (url) => {
         if(data.items && data.links && charactersContainer) {
             updatePagination(data.links.next, data.links.previous)
         }
+
+        /* hay que poner los condicionales porque si no llamamos dos veces a la funcion y da fallo el renderizado en favoritos.*/
         if(charactersContainer) renderCharFavs(characters, charactersContainer)
         if(favoritesContainer) renderCharFavs(favorites, favoritesContainer)
     }) 
