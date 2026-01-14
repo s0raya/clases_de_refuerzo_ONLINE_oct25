@@ -3,27 +3,6 @@ const searchForm = document.getElementById('searchForm');
 const loadDataBtn = document.getElementById('loadDataBtn');
 const loginForm = document.getElementById('loginForm');
 
-// Función para leer credenciales desde el archivo credentials.json
-
-let credentials = null;
-
-async function getCredentials() {
-    if (credentials) {
-        return credentials;
-    }
-    
-    try {
-        const response = await fetch('credentials.json');
-        if (response.ok) {
-            credentials = await response.json();
-            return credentials;
-        }
-    } catch (error) {
-        console.error('Error al cargar credenciales:', error);
-    }
-    return null;
-}
-
 // Hay que comprobar que exista el formulario de login antes de añadir el event listener para que no de error en index.html
 if(loginForm) {
     loginForm.addEventListener('submit', async (e) => {
