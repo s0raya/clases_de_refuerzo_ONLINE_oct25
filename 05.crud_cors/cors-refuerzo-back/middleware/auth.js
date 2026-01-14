@@ -1,5 +1,6 @@
 const authMiddleware = (req, res, next) => {
-    const { user, pass } = req.body;
+    const user = req.headers['x-user'];
+    const pass = req.headers['x-pass'];
 
     const CORRECT_USER = 'admin';
     const CORRECT_PASS = '1234';

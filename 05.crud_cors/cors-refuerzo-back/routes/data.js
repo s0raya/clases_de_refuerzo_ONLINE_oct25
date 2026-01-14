@@ -12,16 +12,13 @@ let datos = [
 ];
 
 // --------------------
-// LOGIN (usa BODY)
+// LOGIN
 // --------------------
 router.post('/login', (req, res) => {
     const { user, pass } = req.body;
 
     if (user === 'admin' && pass === '1234') {
-        res.json({
-            success: true,
-            message: 'Login correcto'
-        });
+        res.json({ success: true,});
     } else {
         res.status(401).json({
             error: 'Usuario o contraseña incorrectos'
