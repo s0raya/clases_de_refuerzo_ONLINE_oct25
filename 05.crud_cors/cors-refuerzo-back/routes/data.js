@@ -37,8 +37,14 @@ router.get('/datos', authMiddleware, (req, res) => {
 
 // POST - crear nuevo dato
 router.post('/datos', authMiddleware, (req, res) => {
-    const nuevoId =
-        datos.length > 0 ? Math.max(...datos.map(d => d.id)) + 1 : 1;
+    const { nombre, apellido, edad, ciudad } = req.body;
+
+    /* Hacemos los datos obligatorios */
+    if (!nombre || !apellido || !edad || !ciudad) {
+        return res.status(400).json({ error: 'Faltan datos' });
+    }
+
+    const nuevoId = datos.length > 0 ? Math.max(...datos.map(d => d.id)) + 1 : 1;
 
     const nuevoDato = {
         id: nuevoId,
