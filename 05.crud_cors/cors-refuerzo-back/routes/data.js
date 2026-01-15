@@ -44,10 +44,8 @@ router.post('/datos', authMiddleware, (req, res) => {
         return res.status(400).json({ error: 'Faltan datos' });
     }
 
-    const nuevoId = datos.length > 0 ? Math.max(...datos.map(d => d.id)) + 1 : 1;
-
     const nuevoDato = {
-        id: nuevoId,
+        id: datos[datos.length - 1].id + 1,
         ...req.body
     };
 
